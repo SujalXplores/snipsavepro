@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import '~highlight.js/styles/dracula.css';
+@include mat-core();
+$snipsave-primary: mat-palette($mat-indigo);
+$snipsave-accent: mat-palette($mat-pink, A200, A100, A400);
+$snipsave-warn: mat-palette($mat-red);
+$snipsave-theme: mat-light-theme(
+  (
+    color: (
+      primary: $snipsave-primary,
+      accent: $snipsave-accent,
+      warn: $snipsave-warn,
+    ),
+  )
+);
+@include angular-material-theme($snipsave-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

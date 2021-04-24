@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'snipsave';
+  title = 'Snip Save';
+  constructor() {
+    this.clearCache();
+  }
+
+  clearCache() {
+    if ('caches' in window) {
+      caches.keys().then(function (keyList) {
+        return Promise.all(keyList.map(function (key) {
+          return caches.delete(key);
+        }));
+      });
+    }
+  }
 }

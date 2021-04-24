@@ -1,0 +1,28 @@
+<body class="text-center">
+    <div class="main_form">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form-signin mat-elevation-z8" autocomplete="off" spellcheck="false">
+            <img class="cloud" alt="security" loading="eager" src="../../../assets/cloud security.png"/>
+            <h1 class="welcome">Welcome Back!</h1>
+            <small class="text-muted">Sign in with your account to continue</small>
+            <div class="mt-4">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="u_email_id" type="email" matInput>
+                    <mat-error>This field is required!</mat-error>
+                    <mat-icon color="primary" matSuffix class="material-icons-outlined">mail</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="u_password" [type]="hide ? 'password' : 'text'" matInput>
+                    <mat-error>This field is required!</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
+                        <mat-icon color="primary" matSuffix class="material-icons-outlined">{{hide ? 'visibility_off' :
+                            'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="mt-2 w-100" id="btn0" type="submit">Sign In</button>
+                <br><br><mat-label>New here? <a routerLink='/signup'>Create Account</a></mat-label>
+            </div>
+        </form>
+    </div>
+</body>

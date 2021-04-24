@@ -1,0 +1,40 @@
+<div class="m-3">
+    <mat-form-field appearance="outline" class="search">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input spellcheck="false" autocomplete="off">
+        <mat-icon color="primary" matSuffix class="material-icons-outlined">search</mat-icon>
+    </mat-form-field>
+    <div class="example-container mat-elevation-z8 mt-3">
+        <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="categories">
+                <th mat-header-cell *matHeaderCellDef> Categories </th>
+                <td mat-cell *matCellDef="let row"> {{row.c_name | titlecase}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef> Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.date | titlecase}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-stroked-button (click)="addCategoryWindow()" color="primary">Add Category</button>
+                </th>
+                <td mat-cell *matCellDef="let row"> 
+                    <button mat-icon-button (click)="onDelete(row.id)" color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button> 
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell">
+                    <h3>No Categories here!</h3>
+                </td>
+            </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+body {
+    display: grid;
+    place-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #43C6AC;
+    background: -webkit-linear-gradient(to right, #191654, #43C6AC);
+    background: linear-gradient(to right, #191654, #43C6AC);
+}
+
+.main_form {
+    border-top: 3px solid hsl(0, 0%, 0%);
+    background-color: hsl(0, 0%, 100%);
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.cloud {
+    margin-top: -90px;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+.header {
+    margin-top: -30px;
+}

@@ -1,0 +1,11 @@
+<div class="card mb-3 mat-card">
+    <mat-card-header class="mt-1 ml-1">
+        <mat-card-title>{{data.title | titlecase}}</mat-card-title>
+        <mat-card-subtitle>{{data.category | titlecase}} - {{data.date}}</mat-card-subtitle>
+    </mat-card-header>
+</div>
+<div class="terminal">
+    <pre><code [highlight]="data.snippet"></code></pre>
+</div>
+<button color="warn" class="mt-3" type="button" mat-stroked-button matDialogClose>Close</button>
+<mat-card style="display: none;"></mat-card>

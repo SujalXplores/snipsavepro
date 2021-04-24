@@ -1,0 +1,34 @@
+<div class="card mb-3 mat-card">
+    <mat-card-header class="mt-1 ml-1">
+        <mat-card-title>Add Snippet</mat-card-title>
+        <mat-card-subtitle>Go creative, Save memories</mat-card-subtitle>
+    </mat-card-header>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="snippetForm" autocomplete="off" spellcheck="false" (ngSubmit)="newSnippet()">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Title</mat-label>
+                <input type="text" required formControlName="title" matInput>
+                <mat-error>This field is required!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Snippet</mat-label>
+                <textarea type="text" required formControlName="snippet" matInput></textarea>
+                <mat-error>This field is required!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Select Category</mat-label>
+                <mat-select [formControl]="categoryControl" required>
+                  <mat-option *ngFor="let category of category_info" [value]="category.c_name">
+                    {{category.c_name}}
+                  </mat-option>
+                </mat-select>
+                <mat-error>This field is required!</mat-error>
+              </mat-form-field>
+            <button color="primary" type="submit" mat-raised-button>Publish</button>&nbsp;
+            <button color="warn" type="button" mat-stroked-button matDialogClose>Close</button>
+        </form>
+    </div>
+</div>
+<mat-card style="display: none;"></mat-card>

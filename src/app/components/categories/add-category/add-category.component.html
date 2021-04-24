@@ -1,0 +1,20 @@
+<div class="card mb-3 mat-card">
+    <mat-card-header class="mt-1 ml-1">
+        <mat-card-title>Add Category</mat-card-title>
+        <mat-card-subtitle>Only languages are allowed</mat-card-subtitle>
+    </mat-card-header>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="categoryForm" autocomplete="off" spellcheck="false" (ngSubmit)="newCategory()">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Category</mat-label>
+                <input type="text" required formControlName="c_name" matInput>
+                <mat-error>This field is required!</mat-error>
+            </mat-form-field>
+            <button color="primary" class="mr-5" type="submit" mat-raised-button>Publish</button>&nbsp;
+            <button color="warn" type="button" mat-stroked-button matDialogClose>Close</button>
+        </form>
+    </div>
+</div>
+<mat-card style="display: none;"></mat-card>
